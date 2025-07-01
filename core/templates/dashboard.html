@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Teacher Dashboard</h2>
+  <hr>
+  <h4>All Uploaded Answers</h4>
+  <table class="table table-bordered">
+    <thead><tr>
+      <th>Student</th><th>Question</th><th>Extracted Text</th><th>Score</th>
+    </tr></thead>
+    <tbody>
+      {% for ans in answers %}
+        <tr>
+          <td>{{ ans.student_name }}</td>
+          <td>{{ ans.question.text|truncatechars:50 }}</td>
+          <td>{{ ans.extracted_text|truncatechars:80 }}</td>
+          <td>{{ ans.score }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

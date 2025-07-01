@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<ul>
+  {% for answer in answers %}
+    <li>
+      <strong>{{ answer.student_name }}</strong><br>
+      Question: {{ answer.question.text }}<br>
+      Extracted: {{ answer.extracted_text|truncatechars:80 }}<br>
+      ✅ Score: {{ answer.score }}/100
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}
